@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+    <style>
+        /* Previous styles remain */
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                to right,
+                #E31837 0%,
+                #E31837 50%,
+                #ffffff 50%,
+                #ffffff 100%
+            );
+        }
+
+        .verification-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* Add new styles for logo and title */
+        .logo-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #E31837;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .email-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 0 auto;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            flex: 1;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: #f5f5f5;
+            transition: all 0.3s;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #E31837;
+            background: #ffffff;
+        }
+
+        .email-label {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .email-input:focus ~ .email-label,
+        .email-input:not(:placeholder-shown) ~ .email-label {
+            top: -10px;
+            left: 12px;
+            font-size: 0.75rem;
+            padding: 0 4px;
+            background: #fff;
+            color: #E31837;
+        }
+
+        .verify-button {
+            padding: 16px 32px;
+            background: #E31837;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        .verify-button:hover {
+            background: #C41230;
+            box-shadow: 0 4px 12px rgba(227, 24, 55, 0.2);
+        }
+
+        /* Add styles for forget password */
+        .forget-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .forget-password a {
+            color: #E31837;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .forget-password a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(
+                    to bottom,
+                    #E31837 0%,
+                    #E31837 50%,
+                    #ffffff 50%,
+                    #ffffff 100%
+                );
+            }
+
+            .verification-container {
+                margin: 20px;
+                padding: 24px;
+            }
+
+            .email-group {
+                flex-direction: column;
+            }
+
+            .verify-button {
+                width: 100%;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <!-- Logo and Title -->
+        <div class="logo-container">
+            <img src="assets/img/logo.png" alt="LU Logo" class="logo">
+            <h1 class="title">LU Smart</h1>
+            <p class="subtitle">Real-Time Face Recognition Attendance System</p>
+        </div>
+
+        <!-- Email Verification Form -->
+        <div class="email-group">
+            <div class="input-container">
+                <input type="email" class="email-input" id="emailInput" placeholder=" " required>
+                <label class="email-label" for="emailInput">University Email</label>
+            </div>
+            <button class="verify-button" id="verifyButton">Verify</button>
+        </div>
+
+        
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('emailInput');
+        const verifyButton = document.getElementById('verifyButton');
+
+        verifyButton.addEventListener('click', () => {
+            const email = emailInput.value;
+
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            verifyButton.classList.add('loading');
+            verifyButton.disabled = true;
+
+            setTimeout(() => {
+                if (email.toLowerCase().endsWith('.edu') || email.toLowerCase().includes('university')) {
+                    verifyButton.textContent = 'Verified';
+                    verifyButton.classList.remove('loading');
+                    verifyButton.classList.add('verified');
+                    emailInput.setAttribute('readonly', true);
+                    
+                    const icon = document.createElement('i');
+                    icon.className = 'ri-check-line';
+                    verifyButton.prepend(icon);
+                } else {
+                    verifyButton.classList.remove('loading');
+                    verifyButton.disabled = false;
+                    alert('Please use a valid university email address');
+                }
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
