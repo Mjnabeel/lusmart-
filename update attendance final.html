@@ -31,16 +31,16 @@
            padding-top: 80px;
        }
 
-       /* Navigation Styles */
+       /* Navigation Bar */
        .nav-container {
-           background: #efebeb;
-           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+           background: white;
            padding: 15px 30px;
            position: fixed;
            top: 0;
            left: 0;
            right: 0;
            z-index: 1000;
+           border-bottom: 1px solid #eaeaea;
        }
 
        .nav-content {
@@ -54,12 +54,11 @@
        .nav-logo {
            display: flex;
            align-items: center;
-           gap: 15px;
+           gap: 10px;
        }
 
        .nav-logo img {
-           height: 40px;
-           width: auto;
+           height: 30px;
        }
 
        .nav-logo span {
@@ -68,43 +67,34 @@
            color: #E31837;
        }
 
-       .nav-links {
+       .nav-middle {
            display: flex;
-           gap: 30px;
            align-items: center;
+           gap: 8px;
+           color: #666;
        }
 
-       .nav-link {
+       .nav-middle i {
+           font-size: 1.1rem;
+       }
+
+       .nav-right {
+           display: flex;
+           align-items: center;
+           gap: 20px;
+       }
+
+       .profile-text {
            color: #333;
-           text-decoration: none;
            font-weight: 500;
-           transition: color 0.3s;
-           display: flex;
-           align-items: center;
-           gap: 5px;
-       }
-
-       .nav-link:hover {
-           color: #E31837;
-       }
-
-       .nav-profile {
-           display: flex;
-           align-items: center;
-           gap: 15px;
-           padding: 8px 15px;
        }
 
        .logout-button {
-           display: flex;
-           align-items: center;
-           gap: 5px;
-           padding: 8px 15px;
            background: #E31837;
-           border: none;
-           border-radius: 20px;
            color: white;
-           font-size: 0.9rem;
+           padding: 8px 16px;
+           border-radius: 4px;
+           border: none;
            font-weight: 500;
            cursor: pointer;
            transition: all 0.3s;
@@ -112,84 +102,103 @@
 
        .logout-button:hover {
            background: #C41230;
-           transform: translateY(-2px);
-           box-shadow: 0 2px 8px rgba(227, 24, 55, 0.3);
        }
 
-       .logout-button i {
-           font-size: 1.1rem;
+       .back-button {
+           padding: 12px 24px;
+           border: none;
+           font-size: 1rem;
+           font-weight: 500;
+           cursor: pointer;
+           border-radius: 4px;
+           color: #666;
+           background: #f5f5f5;
+           display: flex;
+           align-items: center;
+           gap: 8px;
+           margin-bottom: 20px;
        }
 
-       /* Dashboard Styles */
+       .back-button i {
+           font-size: 1.2rem;
+       }
+
+       .back-button:hover {
+           background: #e9ecef;
+       }
+
+       /* Main Container */
        .dashboard-container {
            width: 100%;
            max-width: 800px;
            padding: 40px;
-           background: rgba(255, 255, 255, 0.95);
-           border-radius: 24px;
+           background: white;
+           border-radius: 12px;
            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-           backdrop-filter: blur(10px);
-           position: relative;
+       }
+
+       .header {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           margin-bottom: 30px;
        }
 
        .student-name {
-           font-size: 1.8rem;
+           font-size: 2rem;
            color: #E31837;
-           margin-bottom: 24px;
-           padding: 12px 24px;
-           background: #f8f9fa;
-           border-radius: 50px;
-           text-align: center;
-           font-weight: 600;
        }
 
        .percentage {
-           position: absolute;
-           top: 40px;
-           right: 40px;
            font-size: 2.5rem;
            font-weight: 700;
-           color: #28a745;
-           transition: color 0.3s ease;
+           color: #ffc107;
        }
 
+       /* Table Styles */
        .attendance-table {
            width: 100%;
            border-collapse: collapse;
-           margin-bottom: 24px;
-           background: white;
-           border-radius: 12px;
-           overflow: hidden;
-           box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-       }
-
-       .attendance-table th,
-       .attendance-table td {
-           padding: 16px;
-           text-align: left;
-           border-bottom: 1px solid #eaeaea;
+           margin-bottom: 30px;
        }
 
        .attendance-table th {
-           background: #f8f9fa;
-           font-weight: 600;
-           color: #333;
+           text-align: left;
+           padding: 12px;
+           border-bottom: 2px solid #eaeaea;
+           color: #666;
+           font-weight: 500;
        }
 
-       .attendance-table tbody tr:hover {
-           background-color: #f8f9fa;
+       .attendance-table td {
+           padding: 12px;
+           border-bottom: 1px solid #eaeaea;
+       }
+
+       .date-input {
+           padding: 8px;
+           border: 1px solid #eaeaea;
+           border-radius: 4px;
+           font-family: inherit;
+           font-size: 0.9rem;
+           color: #333;
+           width: 100%;
+           cursor: pointer;
+       }
+
+       .date-input:focus {
+           outline: none;
+           border-color: #E31837;
        }
 
        .attendance-select {
            width: 100%;
-           padding: 12px;
-           border: 2px solid #eaeaea;
-           border-radius: 8px;
+           padding: 8px;
+           border: 1px solid #eaeaea;
+           border-radius: 4px;
            font-size: 0.9rem;
            color: #333;
-           background: white;
            cursor: pointer;
-           transition: all 0.3s;
        }
 
        .attendance-select:focus {
@@ -197,90 +206,68 @@
            border-color: #E31837;
        }
 
-       .attendance-select.present {
-           border-color: #28a745;
-           background-color: #f8fff9;
-       }
-
-       .attendance-select.absent {
-           border-color: #dc3545;
-           background-color: #fff5f5;
-       }
-
-       .attendance-select.excuse {
-           border-color: #ffc107;
-           background-color: #fffbeb;
-       }
-
+       /* Button Container */
        .button-container {
            display: flex;
            gap: 16px;
-           margin-top: 32px;
-       }
-
-       .action-button {
-           flex: 1;
-           padding: 16px;
-           border: none;
-           border-radius: 50px;
-           font-size: 1rem;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s;
+           justify-content: space-between;
        }
 
        .review-button {
-           background: #f8f9fa;
-           color: #333;
+           padding: 12px 24px;
+           border: none;
+           font-size: 1rem;
+           font-weight: 500;
+           cursor: pointer;
+           border-radius: 4px;
+           color: #666;
+           background: #f5f5f5;
        }
 
        .save-button {
-           background: #E31837;
+           padding: 12px 24px;
+           border: none;
+           font-size: 1rem;
+           font-weight: 500;
+           cursor: pointer;
+           border-radius: 4px;
            color: white;
-       }
-
-       .action-button:hover {
-           transform: translateY(-2px);
-       }
-
-       .review-button:hover {
-           background: #e9ecef;
+           background: #E31837;
        }
 
        .save-button:hover {
            background: #C41230;
-           box-shadow: 0 4px 12px rgba(227, 24, 55, 0.2);
        }
    </style>
 </head>
 <body>
-   <!-- Navigation Bar -->
    <nav class="nav-container">
        <div class="nav-content">
            <div class="nav-logo">
-               <img src="assets/img/logo.png" alt="LU Logo">
+               <img src="assets/img/logo.png" alt="LU Smart">
                <span>LU Smart</span>
            </div>
-           <div class="nav-links">
-               <a href="dashboard-1.html" class="nav-link">
-                   <i class="ri-home-4-line"></i>
-                   Dashboard
-               </a>
+           <div class="nav-middle">
+               <i class="ri-dashboard-line"></i>
+               Dashboard
            </div>
-           <div class="nav-profile">
-               <i class="ri-user-3-line"></i>
-               <span>Professor</span>
-               <button class="logout-button" onclick="window.location.href='LU Smart Log in.html'">
-                   <i class="ri-logout-box-r-line"></i>
-                   Logout
-               </button>
+           <div class="nav-right">
+               <span class="profile-text">Professor</span>
+               <button class="logout-button" onclick="window.location.href='LU Smart Log in.html'">Logout</button>
            </div>
        </div>
    </nav>
 
    <div class="dashboard-container">
-       <h1 class="student-name">Student 1</h1>
-       <div class="percentage" id="attendancePercentage">57%</div>
+       <button class="back-button" onclick="window.location.href='update attendance before.html'">
+           <i class="ri-arrow-left-line"></i>
+           Back
+       </button>
+
+       <div class="header">
+           <h1 class="student-name">Student 1</h1>
+           <div class="percentage">60%</div>
+       </div>
 
        <table class="attendance-table">
            <thead>
@@ -293,7 +280,9 @@
            <tbody>
                <tr>
                    <td>Class 1</td>
-                   <td class="date-cell">20 Nov 2024</td>
+                   <td>
+                       <input type="date" class="date-input" onchange="updateDate(this)" value="2024-11-20">
+                   </td>
                    <td>
                        <select class="attendance-select" onchange="updateAttendance(this)">
                            <option value="present" selected>Present</option>
@@ -304,7 +293,9 @@
                </tr>
                <tr>
                    <td>Class 2</td>
-                   <td class="date-cell">21 Nov 2024</td>
+                   <td>
+                       <input type="date" class="date-input" onchange="updateDate(this)" value="2024-11-21">
+                   </td>
                    <td>
                        <select class="attendance-select" onchange="updateAttendance(this)">
                            <option value="present" selected>Present</option>
@@ -315,7 +306,9 @@
                </tr>
                <tr>
                    <td>Class 3</td>
-                   <td class="date-cell">22 Nov 2024</td>
+                   <td>
+                       <input type="date" class="date-input" onchange="updateDate(this)" value="2024-11-22">
+                   </td>
                    <td>
                        <select class="attendance-select" onchange="updateAttendance(this)">
                            <option value="present" selected>Present</option>
@@ -326,7 +319,9 @@
                </tr>
                <tr>
                    <td>Class 4</td>
-                   <td class="date-cell">23 Nov 2024</td>
+                   <td>
+                       <input type="date" class="date-input" onchange="updateDate(this)" value="2024-11-23">
+                   </td>
                    <td>
                        <select class="attendance-select" onchange="updateAttendance(this)">
                            <option value="present">Present</option>
@@ -337,7 +332,9 @@
                </tr>
                <tr>
                    <td>Class 5</td>
-                   <td class="date-cell">23 Nov 2024</td>
+                   <td>
+                       <input type="date" class="date-input" onchange="updateDate(this)" value="2024-11-23">
+                   </td>
                    <td>
                        <select class="attendance-select" onchange="updateAttendance(this)">
                            <option value="present">Present</option>
@@ -350,35 +347,33 @@
        </table>
 
        <div class="button-container">
-           <button class="action-button review-button" onclick="reviewAttendance()">Review</button>
-           <button class="action-button save-button" onclick="saveChanges()">Save Changes</button>
+           <button class="review-button" onclick="reviewAttendance()">Review</button>
+           <button class="save-button" onclick="saveChanges()">Save Changes</button>
        </div>
    </div>
 
    <script>
+       function updateDate(input) {
+           console.log('Date updated:', input.value);
+           calculateAttendance();
+       }
+
        function updateAttendance(select) {
-           select.classList.remove('present', 'absent', 'excuse');
-           select.classList.add(select.value);
-           
+           calculateAttendance();
+       }
+
+       function calculateAttendance() {
            const selects = document.querySelectorAll('.attendance-select');
            const total = selects.length;
            const present = Array.from(selects).filter(s => s.value === 'present').length;
            const percentage = Math.round((present / total) * 100);
            
-           const percentageElement = document.getElementById('attendancePercentage');
-           percentageElement.textContent = `${percentage}%`;
-           
-           if (percentage >= 75) {
-               percentageElement.style.color = '#28a745';
-           } else if (percentage >= 50) {
-               percentageElement.style.color = '#ffc107';
-           } else {
-               percentageElement.style.color = '#dc3545';
-           }
+           document.querySelector('.percentage').textContent = `${percentage}%`;
        }
 
        function reviewAttendance() {
            const selects = document.querySelectorAll('.attendance-select');
+           const dates = document.querySelectorAll('.date-input');
            const total = selects.length;
            const present = Array.from(selects).filter(s => s.value === 'present').length;
            const absent = Array.from(selects).filter(s => s.value === 'absent').length;
@@ -395,21 +390,12 @@
        }
 
        function saveChanges() {
-           const attendance = Array.from(document.querySelectorAll('.attendance-select')).map(select => ({
-               class: select.closest('tr').querySelector('td').textContent,
-               status: select.value
-           }));
-           
-           console.log('Saving attendance:', attendance);
            alert('Changes saved successfully!');
            window.location.href = 'dashboard-1.html';
        }
 
-       document.querySelectorAll('.attendance-select').forEach(select => {
-           select.classList.add(select.value);
-       });
-
-       updateAttendance(document.querySelector('.attendance-select'));
+       // Initialize
+       calculateAttendance();
    </script>
 </body>
 </html>
